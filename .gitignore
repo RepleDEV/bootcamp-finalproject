@@ -14,4 +14,4 @@ yarn-error.log
 
 *.log
 *.bak
-
+.editorconfig
