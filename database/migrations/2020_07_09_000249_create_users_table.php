@@ -17,7 +17,7 @@ class CreateUsersTable extends Migration
             $table->id();
             $table->string('user_name',255);
             $table->string('user_password', 255);
-            $table->bigInteger('rep_points', 255);
+            $table->bigInteger('rep_points');
         });
     }
 
