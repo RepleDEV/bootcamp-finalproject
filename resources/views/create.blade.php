@@ -9,10 +9,13 @@
                 <input type="text" name="title" id="title" class="form-control" placeholder="Enter Title" value="{{$old_title ?? ''}}">
             </div>
             <div class="form-group">
-                <textarea name="content" id="content" cols="155" rows="14">{{$old_content ?? ''}}</textarea>
+                <textarea name="content" id="content">{{$old_content ?? '&lt;p&gt;This is some sample content.&lt;/p&gt;'}}</textarea>
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
+        <script>
+            ClassicEditor.create(document.querySelector('#content')).then(e => console.log(e)).catch(err => console.log(err));
+        </script>
     </div>
 
 @endsection

@@ -15,9 +15,11 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('user_name',255);
-            $table->string('user_password', 255);
-            $table->bigInteger('rep_points');
+            $table->string('name',255);
+            $table->string('password', 255);
+            $table->string('created_at',255);
+            $table->string('updated_at',255);
+            $table->bigInteger('rep_points')->default(0);
         });
     }
 
