@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAnswersTable extends Migration
+class CreateCommentQuestionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,9 @@ class CreateAnswersTable extends Migration
      */
     public function up()
     {
-        Schema::create('answers', function (Blueprint $table) {
+        Schema::create('comment_questions', function (Blueprint $table) {
             $table->id();
-            $table->string('content');
-            $table->date('created_at');
-            $table->date('updated_at');
-            $table->bigInteger('points');
-            $table->boolean('is_best_answer');
+            $table->string('content',255);
             $table->bigInteger('question_id');
         });
     }
@@ -31,6 +27,6 @@ class CreateAnswersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('answers');
+        Schema::dropIfExists('comment_questions');
     }
 }
