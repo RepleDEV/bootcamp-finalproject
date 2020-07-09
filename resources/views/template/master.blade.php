@@ -41,10 +41,9 @@
             </ul>
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a href="" class="navbar-brand">
+                <a href="{{$user_name ?? '/login'}}" class="navbar-brand">
                         {{-- If user image is unavailable, hide :D --}}
-                        {{$user_name ?? ''}}
-                        <img src="{{$user_image ?? ''}}" alt="PFP" style="width:20px;" {{$user_image ?? 'hidden'}}>
+                        {{$user_name ?? 'Login'}}
                     </a>
                 </li>
             </ul>

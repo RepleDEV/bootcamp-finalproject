@@ -22,3 +22,7 @@ Route::prefix('/questions')->group(function() {
         return view('create', ['page_name' => 'ask_q']);
     });
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
