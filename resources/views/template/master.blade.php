@@ -17,23 +17,25 @@
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 
+    <script src="https://cdn.ckeditor.com/ckeditor5/20.0.0/classic/ckeditor.js"></script>
+
     @yield('head')
 </head>
     <body>
         <nav class="navbar bg-dark navbar-expand-sm navbar-dark shadow">
             <ul class="navbar-nav">
                 {{-- If $page_name is home, set this item to be 'active' --}}
-                <li class="nav-item {{$page_name == 'home' ? 'active' : ''}}">
+                <li class="nav-item">
                     <a href="/" class="nav-link">
                         Home
                     </a>
                 </li>
-                <li class="nav-item {{$page_name == 'questions' ? 'active' : ''}}">
+                <li class="nav-item">
                     <a href="/questions" class="nav-link">
                         Pertanyaan
                     </a>
                 </li>
-                <li class="nav-item {{$page_name == 'ask_q' ? 'active' : ''}}">
+                <li class="nav-item">
                     <a href="/questions/create" class="nav-link">
                         Tanya
                     </a>
@@ -41,10 +43,13 @@
             </ul>
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                <a href="{{$user_name ?? '/login'}}" class="navbar-brand">
-                        {{-- If user image is unavailable, hide :D --}}
-                        {{$user_name ?? 'Login'}}
+                @if (Auth::check())
+                    <a href="/logout" class="navbar-brand">
+                        {{$user_name}}
                     </a>
+                @else
+                    <a href="/login" class="navbar-brand">Login</a>
+                @endif
                 </li>
             </ul>
         </nav>    
