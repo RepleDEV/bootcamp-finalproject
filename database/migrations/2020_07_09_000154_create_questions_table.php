@@ -20,7 +20,7 @@ class CreateQuestionsTable extends Migration
             $table->string('tags', 255);
             $table->date('created_at', 255);
             $table->date('updated_at', 255);
-            $table->bigInteger('points');
+            $table->bigInteger('points')->default(0);
         });
     }
 

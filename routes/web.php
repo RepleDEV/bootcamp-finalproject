@@ -15,33 +15,31 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
+// Home Route
 Route::get('/', 'QuestionsController@index');
 
+// Route Prefix
 Route::prefix('/questions')->group(function() {
+    // Get '/questions/', show questions page
     Route::get('/', 'QuestionsController@show');
 
+    // Get POST method from creating a question
+    Route::post('/', 'QuestionsController@create');
+
+    // Get '/questions/create', show create question page
     Route::get('/create', function () {
+        // If hasn't logged in, redirect to '/login'. Else, proceed
         if (Auth::check())return view('create', ['page_name' => 'ask_q', 'user_name' => Auth::user()->name]);
         else return redirect('/login');
     });
 });
 
-// Route::get('/login', function () {
-//     return view('login', ['page_name'=> ""]);
-// });
-// Route::post('/login', 'UsersController@login')->name('login');
 
-// Route::get('/signup', function () {
-//     return view('signup', ['page_name'=> ""]);
-// });
-// Route::post('/signup', 'UsersController@signup')->name('signup');
-
+// Get Logout
 Route::get('/logout', 'Auth\LoginController@logout');
 
-Route::get('/test', function () {
-    return Auth::user();
-});
-
+// Include Rutes for Authentication
 Auth::routes();
 
+// Home Route
 Route::get('/home', 'HomeController@index')->name('home');

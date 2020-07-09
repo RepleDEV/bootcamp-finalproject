@@ -18,8 +18,8 @@ class CreateAnswersTable extends Migration
             $table->string('content');
             $table->date('created_at');
             $table->date('updated_at');
-            $table->bigInteger('points');
-            $table->boolean('is_best_answer');
+            $table->bigInteger('points')->default(0);
+            $table->boolean('is_best_answer')->default(false);
             $table->bigInteger('question_id');
         });
     }

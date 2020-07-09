@@ -17,7 +17,7 @@
                     if ($table_contents) {
                         foreach ($table_contents as $question) {
                             echo '<tr>';
-                            echo "<td>$question->content</td>";
+                            echo "<td>$question->title</td>";
                             echo "<td>$question->created_at</td>";
                             echo "<td>$question->tags</td>";
                             echo "<td>$question->points</td>";
