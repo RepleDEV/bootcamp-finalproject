@@ -19,7 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('password', 255);
             $table->string('created_at',255);
             $table->string('updated_at',255);
-            $table->bigInteger('rep_points');
+            $table->bigInteger('rep_points')->default(0);
         });
     }
 

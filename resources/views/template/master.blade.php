@@ -19,6 +19,8 @@
 
     <script src="https://cdn.ckeditor.com/ckeditor5/20.0.0/classic/ckeditor.js"></script>
 
+    <script src="{{ asset('js/app.js') }}" defer></script>
+
     @yield('head')
 </head>
     <body>
