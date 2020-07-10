@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\QuestionsModel;
+use App\Models\AnswersModel;
 use App\Models\UsersModel;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
@@ -60,10 +61,11 @@ class QuestionsController extends Controller
 
     public function serve($id) {
         $question = QuestionsModel::get_by_id($id);
+        $answers = AnswersModel::get_all();
 
         $user_name = Auth::check() ? Auth::user()->name : '';
 
-        return view('question_page', compact('question', 'user_name'));
+        return view('question_page', compact('question', 'user_name', 'answers'));
     }
 
     public function upvote($id){

@@ -34,7 +34,8 @@ Route::prefix('/questions')->group(function() {
     });
 
     Route::get('/{id}', 'QuestionsController@serve');
-    
+    Route::post('/{id}', 'AnswersController@answer');
+
     Route::get('/{id}/upvote', 'QuestionsController@upvote');
     Route::get('/{id}/downvote', 'QuestionsController@downvote');
 });
