@@ -16,7 +16,7 @@
                 <?php
                     if ($table_contents) {
                         foreach ($table_contents as $question) {
-                            echo '<tr>';
+                            echo "<tr onclick='window.location.href+=\"/$question->id\"'>";
                             echo "<td>$question->title</td>";
                             echo "<td>$question->created_at</td>";
                             echo "<td>$question->tags</td>";

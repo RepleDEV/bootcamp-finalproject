@@ -32,6 +32,11 @@ Route::prefix('/questions')->group(function() {
         if (Auth::check())return view('create', ['page_name' => 'ask_q', 'user_name' => Auth::user()->name]);
         else return redirect('/login');
     });
+
+    Route::get('/{id}', 'QuestionsController@serve');
+    
+    Route::get('/{id}/upvote', 'QuestionsController@upvote');
+    Route::get('/{id}/downvote', 'QuestionsController@downvote');
 });
 
 

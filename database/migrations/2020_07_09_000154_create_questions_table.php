@@ -21,6 +21,9 @@ class CreateQuestionsTable extends Migration
             $table->date('created_at', 255);
             $table->date('updated_at', 255);
             $table->bigInteger('points')->default(0);
+            $table->string('user_created');
+            $table->string('upvoted', 255)->default("");
+            $table->string('downvoted', 255)->default("");
         });
     }
 

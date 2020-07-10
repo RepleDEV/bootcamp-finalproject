@@ -21,6 +21,9 @@ class CreateAnswersTable extends Migration
             $table->bigInteger('points')->default(0);
             $table->boolean('is_best_answer')->default(false);
             $table->bigInteger('question_id');
+            $table->string('user_created');
+            $table->string('upvoted', 255)->default("");
+            $table->string('downvoted', 255)->default("");
         });
     }
 
